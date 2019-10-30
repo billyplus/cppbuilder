@@ -18,7 +18,7 @@ RUN wget https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz \
     && ln -s /usr/local/go/bin/go /usr/bin/go \
     && rm go1.13.3.linux-amd64.tar.gz
 
-RUN ln -s /root/.local/bin/xmake /usr/bin/go
+RUN ln -s /root/.local/bin/xmake /usr/bin/xmake
 
 VOLUME [ "/y3/y3pp", "y3/y3-d/server"]
 
