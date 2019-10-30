@@ -10,8 +10,7 @@ ENV XMAKE_ROOT=y
 RUN apt-get update && apt-get upgrade
 RUN apt-get install -y wget git make gcc ccache build-essential clang libgflags-dev nlohmann-json3-dev libfmt-dev libboost-dev libluajit-5.1-dev libpqxx-dev librabbitmq-dev
 
-RUN wget https://raw.githubusercontent.com/tboox/xmake/master/scripts/get.sh -O - \
-    && ./xmake.sh
+RUN wget https://raw.githubusercontent.com/tboox/xmake/master/scripts/get.sh -O -
 
 RUN wget https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz \
     && tar -C /usr/local -xzf go1.13.3.linux-amd64.tar.gz \
