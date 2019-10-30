@@ -17,11 +17,11 @@ RUN curl -fsSL https://raw.githubusercontent.com/tboox/xmake/master/scripts/get.
 #     && ln -s /usr/local/go/bin/go /usr/bin/go \
 #     && rm go1.13.3.linux-amd64.tar.gz
 
-RUN git clone https://github.com/Microsoft/vcpkg.git ~/.vcpkg \
-    && cd ~/.vcpkg \
+RUN git clone https://github.com/Microsoft/vcpkg.git /vcpkg \
+    && cd /vcpkg \
     && ./bootstrap-vcpkg.sh
 
-RUN cd ~/.vcpkg \
+RUN cd /vcpkg \
     && ./vcpkg install boost-system \
     && ./vcpkg install libpqxx \
     && ./vcpkg install gflags \
