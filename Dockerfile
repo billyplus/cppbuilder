@@ -8,7 +8,7 @@ LABEL author="billy" mail="quiter008@qq.com"
 ENV XMAKE_ROOT=y
 
 RUN apt-get update && apt-get upgrade
-RUN apt-get install -y wget curl git make gcc ccache clang libluajit-5.1-dev unzip tar
+RUN apt-get install -y wget curl git make gcc g++ ccache clang libluajit-5.1-dev unzip tar
 
 RUN curl -fsSL https://raw.githubusercontent.com/tboox/xmake/master/scripts/get.sh
 
