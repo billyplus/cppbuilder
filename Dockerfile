@@ -35,7 +35,7 @@ RUN cd /vcpkg \
     && ./vcpkg install gflags \
     && ./vcpkg install nlohmann-json \
     && ./vcpkg install fmt \
-    && ./vcpkg install amqpcpp \
+    && ./vcpkg install librabbitmq \
     && ./vcpkg install protobuf
 
 # RUN ln -s /root/.local/bin/xmake /usr/bin/xmake
