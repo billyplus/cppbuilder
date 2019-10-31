@@ -8,9 +8,13 @@ LABEL author="billy" mail="quiter008@qq.com"
 ENV XMAKE_ROOT=y
 
 RUN apt-get update && apt-get upgrade
-RUN apt-get install -y wget curl git make gcc g++ ccache clang libluajit-5.1-dev unzip tar
+RUN apt-get install -y wget curl git make cmake gcc g++ ccache clang libluajit-5.1-dev unzip tar
 
-RUN curl -fsSL https://raw.githubusercontent.com/tboox/xmake/master/scripts/get.sh
+# RUN curl -fsSL https://raw.githubusercontent.com/tboox/xmake/master/scripts/get.sh
+
+RUN wget https://github.com/xmake-io/xmake/releases/download/v2.2.8/xmake-v2.2.8.amd64.deb /xmake-v2.2.8.amd64.deb \
+    && dpkg -i /xmake-v2.2.8.amd64.deb \
+    && rm /xmake-v2.2.8.amd64.deb
 
 # RUN wget https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz \
 #     && tar -C /usr/local -xzf go1.13.3.linux-amd64.tar.gz \
