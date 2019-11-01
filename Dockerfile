@@ -30,11 +30,12 @@ RUN git clone https://github.com/Microsoft/vcpkg.git /vcpkg \
     && ./bootstrap-vcpkg.sh
 
 RUN cd /vcpkg \
+    && ./vcpkg install boost \
     && ./vcpkg install boost-system \
+    && ./vcpkg install fmt \
     && ./vcpkg install libpqxx \
     && ./vcpkg install gflags \
     && ./vcpkg install nlohmann-json \
-    && ./vcpkg install fmt \
     && ./vcpkg install librabbitmq \
     && ./vcpkg install protobuf
 
