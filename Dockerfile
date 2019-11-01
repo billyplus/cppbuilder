@@ -25,20 +25,20 @@ RUN /xmake.sh
 #     && ln -s /usr/local/go/bin/go /usr/bin/go \
 #     && rm go1.13.3.linux-amd64.tar.gz
 
-RUN git clone https://github.com/Microsoft/vcpkg.git /vcpkg \
-    && cd /vcpkg \
-    && ./bootstrap-vcpkg.sh
+# RUN git clone https://github.com/Microsoft/vcpkg.git /vcpkg \
+#     && cd /vcpkg \
+#     && ./bootstrap-vcpkg.sh
 
-RUN cd /vcpkg \
-    && ./vcpkg install boost-asio \
-    && ./vcpkg install boost-system \
-    && ./vcpkg install fmt \
-    && ./vcpkg install libpqxx \
-    && ./vcpkg install gflags \
-    && ./vcpkg install nlohmann-json \
-    && ./vcpkg install librabbitmq \
-    && ./vcpkg install sol2 \
-    && ./vcpkg install protobuf
+# RUN cd /vcpkg \
+#     && ./vcpkg install boost-asio \
+#     && ./vcpkg install boost-system \
+#     && ./vcpkg install fmt \
+#     && ./vcpkg install libpqxx \
+#     && ./vcpkg install gflags \
+#     && ./vcpkg install nlohmann-json \
+#     && ./vcpkg install librabbitmq \
+#     && ./vcpkg install sol2 \
+#     && ./vcpkg install protobuf
 
 # RUN ln -s /root/.local/bin/xmake /usr/bin/xmake
 RUN ln -s /root/.local/bin/xmake /usr/bin/xmake
