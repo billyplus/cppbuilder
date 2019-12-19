@@ -15,11 +15,6 @@ ARG NINJA_VERSION=1.9.0.g99df1.kitware.dyndep-1.jobserver-1
 # RUN wget https://github.com/xmake-io/xmake/releases/download/v2.2.8/xmake-v2.2.8.amd64.deb /xmake-v2.2.8.amd64.deb \
 #     && dpkg -i /xmake-v2.2.8.amd64.deb \
 #     && rm /xmake-v2.2.8.amd64.deb
-
-# RUN wget https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz \
-#     && tar -C /usr/local -xzf go1.13.3.linux-amd64.tar.gz \
-#     && ln -s /usr/local/go/bin/go /usr/bin/go \
-#     && rm go1.13.3.linux-amd64.tar.gz
 RUN mkdir -p /opt/app-root/bin
 RUN mkdir -p /opt/app-root/share
 USER root
@@ -39,8 +34,8 @@ RUN curl -L https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-
 
 # RUN tar -xf unzip.tar \
 #     && mv unzip /opt/app-root/bin
-RUN unzip ninja-linux.zip \
-    && mv ninja /opt/app-root/bin
+# RUN unzip ninja-linux.zip \
+#     && mv ninja /opt/app-root/bin
 
 RUN curl -L https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.tar.gz -o cmake-3.16.1-Linux-x86_64.tar.gz \
     && tar -xzf cmake-3.16.1-Linux-x86_64.tar.gz \
