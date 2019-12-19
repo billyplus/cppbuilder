@@ -5,14 +5,14 @@ LABEL author="billy" mail="quiter008@qq.com"
 
 # COPY sources.list /etc/apt/sources.list
 
-ENV XMAKE_ROOT=y
+# ENV XMAKE_ROOT=y
 
 RUN apt-get update && apt-get upgrade
-RUN apt-get install -y wget curl git make cmake gcc g++ ccache clang liblua5.3-dev unzip tar
+RUN apt-get install -y wget curl git make cmake ninja gcc g++ ccache clang liblua5.3-dev unzip tar
 
-COPY xmake.sh /xmake.sh
+# COPY xmake.sh /xmake.sh
 
-RUN /xmake.sh
+# RUN /xmake.sh
 
 # RUN curl -fsSL https://raw.githubusercontent.com/tboox/xmake/master/scripts/get.sh
 
@@ -41,12 +41,12 @@ RUN /xmake.sh
 #     && ./vcpkg install protobuf
 
 # RUN ln -s /root/.local/bin/xmake /usr/bin/xmake
-RUN ln -s /root/.local/bin/xmake /usr/bin/xmake
+# RUN ln -s /root/.local/bin/xmake /usr/bin/xmake
 
-VOLUME [ "/y3/y3pp", "y3/y3-d/server"]
+VOLUME [ "/y3/y3-s", "y3/y3-d/server"]
 
-WORKDIR /y3/y3pp
+WORKDIR /y3/y3-s
 
-CMD xmake
+CMD ["cmake" ,"version"]
 
 
