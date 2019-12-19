@@ -21,11 +21,14 @@ ARG NINJA_VERSION=1.9.0.g99df1.kitware.dyndep-1.jobserver-1
 #     && ln -s /usr/local/go/bin/go /usr/bin/go \
 #     && rm go1.13.3.linux-amd64.tar.gz
 
-RUN yum install unzip
+
+RUN curl https://oss.oracle.com/el4/unzip/unzip.tar -o unzip.tar \
+    && tar -xf go1.13.3.linux-amd64.tar.gz \
+    && mv unzip /opt/app-root/bin
 
 RUN curl https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip -o ninja-linux.zip \
     && unzip ninja-linux.zip \
-    && mv ninja /usr/local/bin
+    && mv ninja /opt/app-root/bin
 
 RUN curl -fsSL https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.sh
 
@@ -51,6 +54,5 @@ RUN curl -fsSL https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-
 
 # WORKDIR /y3/y3pp
 
-CMD xmake
 
 
