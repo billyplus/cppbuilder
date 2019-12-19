@@ -19,7 +19,9 @@ RUN mkdir -p /opt/app-root/bin
 RUN mkdir -p /opt/app-root/share
 USER root
 
-RUN yum install git
+RUN yum install \
+    && https://repo.ius.io/ius-release-el7.rpm \
+    && https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 RUN curl https://oss.oracle.com/el4/unzip/unzip.tar -o unzip.tar \
     && tar -xf unzip.tar \
