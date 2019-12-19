@@ -8,7 +8,11 @@ LABEL author="billy" mail="quiter008@qq.com"
 # ENV XMAKE_ROOT=y
 
 RUN apt-get update && apt-get upgrade
-RUN apt-get install -y wget curl git make cmake ninja gcc g++ ccache clang liblua5.3-dev unzip tar
+RUN apt-get install -y wget curl git make cmake gcc g++ ccache clang liblua5.3-dev unzip tar
+
+RUN curl -L https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip -o ninja-linux.zip \
+    && unzip ninja-linux.zip \
+    && mv ninja /usr/local/bin
 
 # COPY xmake.sh /xmake.sh
 
