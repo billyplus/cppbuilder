@@ -20,18 +20,37 @@ ARG NINJA_VERSION=1.9.0.g99df1.kitware.dyndep-1.jobserver-1
 #     && tar -C /usr/local -xzf go1.13.3.linux-amd64.tar.gz \
 #     && ln -s /usr/local/go/bin/go /usr/bin/go \
 #     && rm go1.13.3.linux-amd64.tar.gz
+RUN mkdir -p /opt/app-root/bin
+RUN mkdir -p /opt/app-root/share
+USER root
 
+RUN yum install git
 
 RUN curl https://oss.oracle.com/el4/unzip/unzip.tar -o unzip.tar \
-    && tar -xf go1.13.3.linux-amd64.tar.gz \
+    && tar -xf unzip.tar \
     && mv unzip /opt/app-root/bin
 
-RUN curl https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip -o ninja-linux.zip \
+RUN curl -L https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip -o ninja-linux.zip \
     && unzip ninja-linux.zip \
     && mv ninja /opt/app-root/bin
+# COPY ninja-linux.zip ninja-linux.zip
+# COPY unzip.tar unzip.tar
+# COPY cmake-3.16.1-Linux-x86_64.tar.gz cmake-3.16.1-Linux-x86_64.tar.gz
 
-RUN curl -fsSL https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.sh
+# RUN tar -xf unzip.tar \
+#     && mv unzip /opt/app-root/bin
+RUN unzip ninja-linux.zip \
+    && mv ninja /opt/app-root/bin
 
+RUN curl -L https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.tar.gz -o cmake-3.16.1-Linux-x86_64.tar.gz \
+    && tar -xzf cmake-3.16.1-Linux-x86_64.tar.gz \
+    && cp cmake-3.16.1-Linux-x86_64/bin/* ../bin \
+    && cp -r cmake-3.16.1-Linux-x86_64/share/* ../share
+
+RUN rm cmake-3.16.1-Linux-x86_64.tar.gz \
+    && rm -rf cmake-3.16.1-Linux-x86_64 \
+    && rm ninja-linux.zip \
+    && rm unzip.tar
 # RUN git clone https://github.com/Microsoft/vcpkg.git /vcpkg \
 #     && cd /vcpkg \
 #     && ./bootstrap-vcpkg.sh
