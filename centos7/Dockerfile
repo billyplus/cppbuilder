@@ -6,8 +6,8 @@ LABEL maintainer="billy" \
 # RUN curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 # RUN yum install -y epel-release
 
-COPY 1.repo /etc/yum.repos.d/1.repo
-COPY 2.repo /etc/yum.repos.d/2.repo
+COPY ./centos7/1.repo /etc/yum.repos.d/1.repo
+COPY ./centos7/2.repo /etc/yum.repos.d/2.repo
 
 RUN yum makecache
 
