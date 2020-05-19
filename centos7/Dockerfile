@@ -13,6 +13,10 @@ RUN yum makecache
 
 RUN yum install -y lua-devel.x86_64 tolua++-devel.x86_64 zlib-devel.x86_64 gcc-c++.x86_64 cmake3.x86_64 ninja-build.x86_64 mysql-community-devel.x86_64
 
+RUN yum install -y gdb.x86_64
+
+RUN yum clean all
+
 RUN ln -s /usr/bin/cmake3 /usr/bin/cmake && \
     mv /etc/localtime /etc/localtime.bak && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
