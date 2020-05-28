@@ -21,6 +21,9 @@ RUN ln -s /usr/bin/cmake3 /usr/bin/cmake && \
     mv /etc/localtime /etc/localtime.bak && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+RUN echo 'core.%h.%e.%t' > /proc/sys/kernel/core_pattern && \
+    ulimit -c unlimited
+
 RUN mkdir -p /work/src
 
 WORKDIR /work/src
