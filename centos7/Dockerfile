@@ -23,8 +23,8 @@ RUN ln -s /usr/bin/cmake3 /usr/bin/cmake && \
 
 RUN /bin/sh -c echo "source scl_source enable devtoolset-9" >> ~/.bashrc
 
-RUN bash -c 'echo core.%e.%p > /proc/sys/kernel/core_pattern' && \
-    ulimit -c unlimited
+# RUN bash -c 'echo core.%e.%p > /proc/sys/kernel/core_pattern' && \
+#     ulimit -c unlimited
 
 RUN mkdir -p /work/src
 
