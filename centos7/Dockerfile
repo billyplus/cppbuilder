@@ -6,8 +6,8 @@ LABEL maintainer="billy" \
 # RUN curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 # RUN yum install -y epel-release
 
-COPY ./centos7/1.repo /etc/yum.repos.d/1.repo
-COPY ./centos7/2.repo /etc/yum.repos.d/2.repo
+COPY ./1.repo /etc/yum.repos.d/1.repo
+COPY ./2.repo /etc/yum.repos.d/2.repo
 
 RUN yum makecache
 
@@ -15,7 +15,13 @@ RUN yum install -y lua-devel.x86_64 tolua++-devel.x86_64 zlib-devel.x86_64 cmake
 
 RUN yum install -y gdb.x86_64
 
-RUN yum install -y centos-release-scl devtoolset-9
+RUN yum install -y centos-release-scl
+
+RUN yum install -y devtoolset-9
+
+RUN yum install -y https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm
+
+RUN yum install -y git
 
 RUN yum clean all
 
